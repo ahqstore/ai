@@ -25,11 +25,11 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const ai = require("./.github/scripts/ai/dist/prompt.js");
+            const ai = await import("./.github/scripts/ai/dist/prompt.js");
 
             console.log(context.event.issue);
 
-            return await ai(`# ${context.event.issue.title}\n${context.event.issue.body}`)
+            return await ai.handle(`# ${context.event.issue.title}\n${context.event.issue.body}`)
 
       - name: Comment with AI summary
         run: |

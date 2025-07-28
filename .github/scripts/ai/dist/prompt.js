@@ -11,7 +11,7 @@ import { join } from "node:path";
 import { readFileSync } from "node:fs";
 const data = join(import.meta.dirname, "../prompt.schema.json");
 const schema = JSON.parse(readFileSync(data).toString());
-module.exports = (text) => __awaiter(void 0, void 0, void 0, function* () {
+export const handle = (text) => __awaiter(void 0, void 0, void 0, function* () {
     const path = "https://models.github.ai/orgs/ahqstore/inference/chat/completions";
     const response = yield fetch(path, {
         body: JSON.stringify({

@@ -6,11 +6,11 @@ import type { Body, Response } from "./type.js"
 const data = join(import.meta.dirname, "../prompt.schema.json");
 const schema = JSON.parse(readFileSync(data).toString())
 
-
-module.exports = async (text: string) => {
+export const handle = async (text: string) => {
   const path = "https://models.github.ai/orgs/ahqstore/inference/chat/completions"
 
   const response = await fetch(path, {
+    method: "POST",
     body: JSON.stringify({
       max_tokens: 1024,
       messages: [
