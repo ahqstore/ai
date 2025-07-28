@@ -19,21 +19,23 @@ jobs:
 
       - name: Run AI Inference
         uses: actions/github-script@v7
-        id: inference
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          result-encoding: string
           script: |
             const ai = await import("${{ github.workspace }}/.github/scripts/ai/dist/prompt.js");
 
             console.log(JSON.stringify(context.payload.issue.title, null, 2));
 
-            return await ai.handle(`# ${context.payload.issue.title}\n ${context.payload.issue.body}`)
+            const resp = await ai.handle(`# ${context.payload.issue.title}\n ${context.payload.issue.body}`)
 
-      - name: Comment with AI summary
-        run: |
-          gh issue comment $ISSUE_NUMBER --body '${{ steps.inference.outputs.result }}'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
+            if (resp.warn.length > 0) {
+              const [owner, repo] = "${{ github.repository }}".split("/");
+
+              await octokit.rest.issues.createComment({
+                owner,
+                repo, 
+                issue_number: ${{ github.event.issue.number }},
+                body: `**Detected as ${resp.spam ? "spammer" : "disrespectedful behaviour"}**\n\n${resp.warn}`,
+              });
+            }

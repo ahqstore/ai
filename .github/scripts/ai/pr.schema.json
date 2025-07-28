@@ -18,10 +18,10 @@
       },
       "spam": {
         "description": "Is it spam?",
-        "type": "boolean"
+        "enum": ["Absolutely", "Probably", "No"]
       },
       "warn": {
-        "description": "Warning to the user only if the user is desrespectful in the conversation or is engaged in spam activities",
+        "description": "Warning to the user only if the user is desrespectful in the conversation",
         "type": "string"
       },
       "summary": {

@@ -40,5 +40,5 @@ export const handle = async (text: string) => {
   console.log(response);
   console.log(JSON.stringify(response, null, 4));
 
-  return response.choices[0].message.content;
+  return JSON.parse(response.choices[0].message.content);
 }
