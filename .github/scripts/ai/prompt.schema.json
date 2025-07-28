@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
+  "name": "Response",
   "properties": {
     "length": {
       "description": "Suggest the length of the body. Use the items in the enum.\nToo Long: The description is too long for its provided intent.\nLong: The Description is a bit longer than how much long an issue should be (recommended size: 200words max)\nGood: The description is perfect for its intent",
