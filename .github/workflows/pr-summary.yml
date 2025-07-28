@@ -17,7 +17,6 @@ jobs:
         id: inference
         uses: actions/ai-inference@v1
         with:
-          enable-github-mcp: true
           prompt: |
             Summarize all the PR File Changes and package additions in PULL REQUEST Number:
             ${{ github.event.pull_request.id }}

@@ -3,7 +3,7 @@ name: Summarize new issues
 on:
   issues:
     types: [opened]
-  issue_comment:  
+  issue_comment:
 
 jobs:
   summary:
@@ -21,11 +21,11 @@ jobs:
         id: inference
         uses: actions/ai-inference@v1
         with:
-          enable-github-mcp: true
-          prompt: |
-            Summarize the following GitHub issue in one paragraph:
-            Title: ${{ github.event.issue.title }}
-            Body: ${{ github.event.issue.body }}
+          input: |
+            body: |
+              # ${{ github.event.issue.title }}
+              ${{ github.event.issue.body }}
+          prompt-file: ./prompt.yml
 
       - name: Comment with AI summary
         run: |

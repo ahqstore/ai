@@ -1,0 +1,27 @@
+messages:
+  - role: system
+    content: You are a helpful assistant that responds using JSON format
+  - role: user
+    content: Categorise {{body}}
+
+respondeFormat: json_schema
+jsonSchema: |-
+  {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "length": {
+      "description": "Suggest the length of the body. Use the items in the enum.\nToo Long: The description is too long for its provided intent.\nGood: The description is perfect for its intent",
+      "enum": ["Too Long", "Good"]
+    },
+    "spam": {
+      "description": "Is it spam?",
+      "enum": ["Absolutely", "Probably", "No"]
+    },
+    "summary": {
+      "description": "Provide a summary in nicely formatted markdown (only if the length is set to \"Too Long\")",
+      "type": "string"
+    }
+  },
+  "required": ["length", "spam"]
+  }
