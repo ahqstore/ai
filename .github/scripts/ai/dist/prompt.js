@@ -14,6 +14,7 @@ const schema = JSON.parse(readFileSync(data).toString());
 export const handle = (text) => __awaiter(void 0, void 0, void 0, function* () {
     const path = "https://models.github.ai/orgs/ahqstore/inference/chat/completions";
     const response = yield fetch(path, {
+        method: "POST",
         body: JSON.stringify({
             max_tokens: 1024,
             messages: [
