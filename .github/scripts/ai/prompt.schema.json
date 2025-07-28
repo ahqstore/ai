@@ -13,6 +13,7 @@
         "type": "integer"
       },
       "tone": {
+        "description": "Describes the tone of the body",
         "enum": ["Respectful", "Casual", "Too Formal", "Disrespectful"]
       },
       "spam": {
@@ -20,11 +21,11 @@
         "enum": ["Absolutely", "Probably", "No"]
       },
       "summary": {
-        "description": "Provide a summary in nicely formatted markdown (only if the length is set to \"Too Long\" or \"Long\")",
+        "description": "Provide a summary in nicely formatted markdown (set it only if the length is set to \"Too Long\" or \"Long\" or else let it be an empty string)",
         "type": "string"
       }
     },
     "additionalProperties": false,
-    "required": ["length", "spam", "tone", "words"]
+    "required": ["length", "spam", "tone", "words", "summary"]
   }
 }
