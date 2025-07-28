@@ -27,9 +27,9 @@ jobs:
           script: |
             const ai = await import("${{ github.workspace }}/.github/scripts/ai/dist/prompt.js");
 
-            console.log(context.event.issue);
+            console.log(JSON.stringify(context, null, 2));
 
-            return await ai.handle(`# ${context.event.issue.title}\n${context.event.issue.body}`)
+            return await ai.handle(`# ${{ github.event.issue.title }}\n${{ github.event.issue.body }}`)
 
       - name: Comment with AI summary
         run: |
