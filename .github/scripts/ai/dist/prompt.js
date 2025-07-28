@@ -42,5 +42,5 @@ export const handle = (text) => __awaiter(void 0, void 0, void 0, function* () {
     }).then((d) => d.json());
     console.log(response);
     console.log(JSON.stringify(response, null, 4));
-    return response.choices[0].message.content;
+    return JSON.parse(response.choices[0].message.content);
 });
