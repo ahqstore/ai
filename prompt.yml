@@ -19,7 +19,7 @@ jsonSchema: |-
       "type": "integer"
     },
     "tone": {
-      "enum": ["Respectful, Disrespectful"]
+      "enum": ["Respectful", "Disrespectful"]
     },
     "spam": {
       "description": "Is it spam?",
