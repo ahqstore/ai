@@ -32,7 +32,7 @@ jobs:
             if (resp.warn.length > 0) {
               const [owner, repo] = "${{ github.repository }}".split("/");
 
-              await octokit.rest.issues.createComment({
+              await github.rest.issues.createComment({
                 owner,
                 repo, 
                 issue_number: ${{ github.event.issue.number }},
