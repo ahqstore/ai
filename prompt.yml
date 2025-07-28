@@ -14,6 +14,13 @@ jsonSchema: |-
       "description": "Suggest the length of the body. Use the items in the enum.\nToo Long: The description is too long for its provided intent.\nLong: The Description is a bit longer than how much long an issue should be (recommended size: 200words max)\nGood: The description is perfect for its intent",
       "enum": ["Too Long", "Long", "Good"]
     },
+    "words": {
+      "description": "Total words present",
+      "type": "integer"
+    },
+    "tone": {
+      "enum": ["Respectful, Disrespectful"]
+    },
     "spam": {
       "description": "Is it spam?",
       "enum": ["Absolutely", "Probably", "No"]
@@ -23,5 +30,5 @@ jsonSchema: |-
       "type": "string"
     }
   },
-  "required": ["length", "spam"]
+  "required": ["length", "spam", "tone", "words"]
   }
