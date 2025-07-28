@@ -11,15 +11,15 @@ jsonSchema: |-
   "type": "object",
   "properties": {
     "length": {
-      "description": "Suggest the length of the body. Use the items in the enum.\nToo Long: The description is too long for its provided intent.\nGood: The description is perfect for its intent",
-      "enum": ["Too Long", "Good"]
+      "description": "Suggest the length of the body. Use the items in the enum.\nToo Long: The description is too long for its provided intent.\nLong: The Description is a bit longer than how much long an issue should be (recommended size: 200words max)\nGood: The description is perfect for its intent",
+      "enum": ["Too Long", "Long", "Good"]
     },
     "spam": {
       "description": "Is it spam?",
       "enum": ["Absolutely", "Probably", "No"]
     },
     "summary": {
-      "description": "Provide a summary in nicely formatted markdown (only if the length is set to \"Too Long\")",
+      "description": "Provide a summary in nicely formatted markdown (only if the length is set to \"Too Long\" or \"Long\"")",
       "type": "string"
     }
   },
