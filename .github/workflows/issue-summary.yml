@@ -25,7 +25,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const ai = await import("./.github/scripts/ai/dist/prompt.js");
+            const ai = await import("${{ github.workspace }}/.github/scripts/ai/dist/prompt.js");
 
             console.log(context.event.issue);
 
