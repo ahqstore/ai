@@ -17,20 +17,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run AI inference
+      - name: Run AI Inference
+        uses: actions/github-script@v7
         id: inference
-        uses: actions/ai-inference@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          input: |
-            body: |
-              # ${{ github.event.issue.title }}
-              ${{ github.event.issue.body }}
-          prompt-file: ./prompt.yml
+          result-encoding: string
+          script: |
+            const ai = require("./.github/scripts/ai/dist/prompt.js");
+
+            console.log(context.event.issue);
+
+            return await ai(`# ${context.event.issue.title}\n${context.event.issue.body}`)
 
       - name: Comment with AI summary
         run: |
-          gh issue comment $ISSUE_NUMBER --body '${{ steps.inference.outputs.response }}'
+          gh issue comment $ISSUE_NUMBER --body '${{ steps.inference.outputs.result }}'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          RESPONSE: ${{ steps.inference.outputs.response }}
