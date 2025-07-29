@@ -3,7 +3,6 @@ name: Summarize new issues
 on:
   issues:
     types: [opened]
-  issue_comment:
 
 jobs:
   summary:
