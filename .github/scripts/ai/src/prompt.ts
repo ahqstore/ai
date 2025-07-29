@@ -12,7 +12,7 @@ export const handle = async (text: string) => {
   const response = await fetch(path, {
     method: "POST",
     body: JSON.stringify({
-      max_tokens: 1024,
+      max_tokens: 4096,
       messages: [
         {
           content: "Classify the text as per the schema given",

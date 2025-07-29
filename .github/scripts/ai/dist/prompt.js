@@ -16,7 +16,7 @@ export const handle = (text) => __awaiter(void 0, void 0, void 0, function* () {
     const response = yield fetch(path, {
         method: "POST",
         body: JSON.stringify({
-            max_tokens: 1024,
+            max_tokens: 4096,
             messages: [
                 {
                     content: "Classify the text as per the schema given",
