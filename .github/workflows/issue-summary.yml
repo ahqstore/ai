@@ -28,7 +28,7 @@ jobs:
 
             const issue = context.payload.issue;
 
-            console.log(JSON.stringify(issueissue.title, null, 2));
+            console.log(JSON.stringify(issue.title, null, 2));
 
             const resp = await ai.handle(`# ${issue.title}\n ${issue.body}`)
 
