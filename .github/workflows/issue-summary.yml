@@ -53,15 +53,6 @@ jobs:
               });
             }
 
-            if (resp.summary.length > 0) {
-              await github.rest.issues.createComment({
-                owner,
-                repo, 
-                issue_number,
-                body: resp.summary,
-              });
-            }
-
             const comment = await github.rest.issues.createComment({
               owner,
               repo,
@@ -85,5 +76,14 @@ jobs:
                 repo,
                 comment_id: comment.data.id,
                 body: resp.comment.replace(/@user/g, `@${issue.user.login}`)
+              });
+            }
+
+            if (resp.summary.length > 0) {
+              await github.rest.issues.createComment({
+                owner,
+                repo, 
+                issue_number,
+                body: resp.summary,
               });
             }
