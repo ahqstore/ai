@@ -40,7 +40,7 @@ jobs:
                 owner,
                 repo, 
                 issue_number,
-                body: `**Detected as ${resp.spam ? "spammer" : "disrespectedful behaviour"}**\n\n${resp.warn}`.replace(/@user/g, `@${issue.user.login}`),
+                body: `${resp.warn}`.replace(/@user/g, `@${issue.user.login}`),
               });
             }
 
@@ -78,3 +78,12 @@ jobs:
               comment_id: comment.data.id,
               body: "_Mods logs are here_"
             });
+
+            if (resp.comment.length > 0) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: comment.data.id,
+                body: resp.comment.replace(/@user/g, `@${issue.user.login}`)
+              });
+            }

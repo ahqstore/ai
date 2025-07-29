@@ -31,6 +31,10 @@
       "summary": {
         "description": "Provide a summary in nicely formatted markdown, you should use `-` to show bullet points (set it only if the length is set to \"Too Long\" or \"Long\" or else let it be an empty string). Start with \"# Summary\"",
         "type": "string"
+      },
+      "comment": {
+        "description": "Anything else you'd like to tell the user \"@user\" to ping them. Can be empty string. Recommendation is to say something to the user",
+        "type": "string"
       }
     },
     "additionalProperties": false,
@@ -41,7 +45,8 @@
       "tone",
       "toneInfo",
       "words",
-      "summary"
+      "summary",
+      "comment"
     ]
   }
 }
