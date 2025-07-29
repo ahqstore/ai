@@ -33,7 +33,7 @@
         "type": "string"
       },
       "comment": {
-        "description": "Anything else you'd like to tell the user, \"@user\" to ping them if you want to. You can also add a short comment about length, if thats too long. Also that the devs will look into it shortly etc. Can be empty string. Recommendation is to say something to the user. Keep it a bit long and a bit details (not too long)",
+        "description": "Anything else you'd like to tell the user, \"@user\" to ping them if you want to. You can also add a short comment about length, if thats too long. Also that the devs will look into it shortly etc. Can be empty string. Recommendation is to say something to the user. Keep it a bit long and a bit details (not too long). Also tell them to share more information if the information provided is not enough.",
         "type": "string"
       }
     },
