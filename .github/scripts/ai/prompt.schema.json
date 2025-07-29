@@ -29,7 +29,7 @@
         "type": "string"
       },
       "summary": {
-        "description": "Provide a summary in nicely formatted markdown, you should use `-` and form the summary in bullet points in all the languages English, Hindi, Sanskrit, French. You can omit the English summary if the original body is not more than 300 characters. Start with \"# Summary (English)\", \"# Summary (Hindi)\", \"# Summary (Sanskrit)\", \"# Summary (French)\"",
+        "description": "Provide a summary in nicely formatted markdown, you should use `-` and form the summary in bullet points in all the languages English, Hindi, Bengali, Sanskrit, French. You can omit the English summary if the original body is not more than 300 characters. Start with \"# Summary (English)\", \"# Summary (Hindi)\", \"# Summary (Bengali)\", \"# Summary (Sanskrit)\", \"# Summary (French)\"",
         "type": "string"
       },
       "comment": {
