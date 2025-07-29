@@ -29,7 +29,7 @@
         "type": "string"
       },
       "summary": {
-        "description": "Provide a summary in nicely formatted markdown, you should use `-` to show bullet points (set it only if the length is set to \"Too Long\" or \"Long\" or else let it be an empty string). Start with \"# Summary\"",
+        "description": "Provide a summary in nicely formatted markdown, you should use `-` and form the summary in bullet points in the languages mentioned. You can omit the English summary if the original body is not more than 300 characters. Start with \"# Summary (English)\", \"# Summary (Hindi)\", \"# Summary (Bengali)\", \"# Summary (Sanskrit)\", \"# Summary (French)\", \"# Summary (German)\"",
         "type": "string"
       },
       "comment": {
