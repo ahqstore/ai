@@ -22,7 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           script: |
-            const ai = await import("${{ github.workspace }}/.github/scripts/ai/dist/prompt.js");
+            const ai = await import("${{ github.workspace }}/.github/scripts/ai/compiled/prompt.js");
 
             const issue = context.payload.issue;
 
