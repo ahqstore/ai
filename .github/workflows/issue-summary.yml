@@ -53,7 +53,7 @@ jobs:
               });
             }
 
-            if (resp.summary > 0) {
+            if (resp.summary.length > 0) {
               await github.rest.issues.createComment({
                 owner,
                 repo, 
@@ -62,7 +62,7 @@ jobs:
               });
             }
 
-            const { id: comment_id } = await github.rest.issues.createComment({
+            const comment = await github.rest.issues.createComment({
               owner,
               repo,
               issue_number,
@@ -70,9 +70,11 @@ jobs:
             });
 
 
+            console.log(comment.data);
+
             await github.rest.issues.updateComment({
               owner,
               repo,
-              comment_id,
+              comment_id: comment.data.id,
               body: "_Mods logs are here_"
             });
