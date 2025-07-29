@@ -40,7 +40,7 @@ jobs:
                 owner,
                 repo, 
                 issue_number,
-                body: `**Detected as ${resp.spam ? "spammer" : "disrespectedful behaviour"}**\n\n${resp.warn}`replace(/@user/g, `@${issue.user.login}`),
+                body: `**Detected as ${resp.spam ? "spammer" : "disrespectedful behaviour"}**\n\n${resp.warn}`.replace(/@user/g, `@${issue.user.login}`),
               });
             }
 
