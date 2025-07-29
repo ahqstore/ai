@@ -23,7 +23,7 @@ export const handle = async (text: string) => {
           role: "user"
         }
       ],
-      model: "openai/gpt-4.1",
+      model: "openai/gpt-4.1-mini",
       response_format: {
         type: "json_schema",
         json_schema: schema

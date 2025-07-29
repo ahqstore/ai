@@ -1,5 +1,5 @@
 export interface Body {
-  model: "openai/gpt-4.1"
+  model: "openai/gpt-4.1-mini"
   messages: Message[]
   max_tokens: number
   response_format: {

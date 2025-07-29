@@ -27,7 +27,7 @@ export const handle = (text) => __awaiter(void 0, void 0, void 0, function* () {
                     role: "user"
                 }
             ],
-            model: "openai/gpt-4.1",
+            model: "openai/gpt-4.1-mini",
             response_format: {
                 type: "json_schema",
                 json_schema: schema
